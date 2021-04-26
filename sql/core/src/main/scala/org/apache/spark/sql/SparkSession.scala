@@ -903,13 +903,13 @@ object SparkSession extends Logging {
      * Gets an existing [[SparkSession]] or, if there is no existing one, creates a new
      * one based on the options set in this builder.
      *
-     * This method first checks whether there is a valid thread-local SparkSession,
-     * and if yes, return that one. It then checks whether there is a valid global
+     * This method first checks whether(是否) there is a valid thread-local(有效线程) SparkSession,
+     * and if yes, return that one. It then checks whether there is a valid global(有效的全局变量)
      * default SparkSession, and if yes, return that one. If no valid global default
-     * SparkSession exists, the method creates a new SparkSession and assigns the
+     * SparkSession exists, the method creates a new SparkSession and assigns(分派) the
      * newly created SparkSession as the global default.
      *
-     * In case an existing SparkSession is returned, the non-static config options specified in
+     * In case an existing SparkSession is returned, the non-static config options specified(指定的非静态配置选项) in
      * this builder will be applied to the existing SparkSession.
      *
      * @since 2.0.0
@@ -1106,7 +1106,7 @@ object SparkSession extends Logging {
     }
   }
 
-  /** The active SparkSession for the current thread. */
+  /** The active SparkSession for the current thread(当前线程). */
   private val activeThreadSession = new InheritableThreadLocal[SparkSession]
 
   /** Reference to the root SparkSession. */

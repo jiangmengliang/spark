@@ -72,7 +72,7 @@ import org.apache.spark.util.logging.DriverLogger
 
 /**
  * Main entry point for Spark functionality. A SparkContext represents the connection to a Spark
- * cluster, and can be used to create RDDs, accumulators and broadcast variables on that cluster.
+ * cluster(sparkContext注册到spark集群), and can be used to create RDDs, accumulators(累加器) and broadcast variables(广播变量) on that cluster.
  *
  * @note Only one `SparkContext` should be active per JVM. You must `stop()` the
  *   active `SparkContext` before creating a new one.
@@ -81,7 +81,7 @@ import org.apache.spark.util.logging.DriverLogger
  */
 class SparkContext(config: SparkConf) extends Logging {
 
-  // The call site where this SparkContext was constructed.
+  // The call site where this SparkContext was constructed（构造）.
   private val creationSite: CallSite = Utils.getCallSite()
 
   if (!config.get(EXECUTOR_ALLOW_SPARK_CONTEXT)) {

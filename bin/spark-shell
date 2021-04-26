@@ -19,15 +19,18 @@
 
 #
 # Shell script for starting the Spark Shell REPL
-
+# REPL是指：“读取-求值-输出”循环（英语：Read-Eval-Print Loop，简称REPL），交互式顶层构件，就是一个简单的交互式的编程环境
+#$(uname) 输出的是操作系统的名称： Linux，
 cygwin=false
 case "$(uname)" in
   CYGWIN*) cygwin=true;;
 esac
 
+# POSIX，全称为可移植性操作系统接口，是一种关于信息技术的IEEE标准。
 # Enter posix mode for bash
 set -o posix
 
+# -z STRING : "STRING"的长度为零则为真
 if [ -z "${SPARK_HOME}" ]; then
   source "$(dirname "$0")"/find-spark-home
 fi
